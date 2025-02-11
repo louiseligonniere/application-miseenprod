@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
+import argparse
+
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -14,10 +16,19 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import confusion_matrix
 
-N_TREES = 20
 MAX_DEPTH = None
 MAX_FEATURES = "sqrt"
 JETON_API = "$trotskitueleski1917"
+
+# Nombre d'arbres dans la random forest
+
+parser = argparse.ArgumentParser(description="Combien d'arbres dans la random forest ?")
+parser.add_argument(
+    "--n_trees", type=int, default=20, help="Nombre d'arbres de la random forest"
+)
+args = parser.parse_args()
+N_TREES = args.n_trees
+print(f"Nombre d'arbres dans la random forest: {N_TREES}")
 
 
 # IMPORT ET EXPLORATION DONNEES --------------------------------
