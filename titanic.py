@@ -7,6 +7,7 @@ import pandas as pd
 import seaborn as sns
 
 import argparse
+from dotenv import load_dotenv
 
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.model_selection import train_test_split
@@ -16,9 +17,11 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import confusion_matrix
 
+# Charger les variables d'environnement
+load_dotenv()
+
 MAX_DEPTH = None
 MAX_FEATURES = "sqrt"
-JETON_API = "$trotskitueleski1917"
 
 # Nombre d'arbres dans la random forest
 
